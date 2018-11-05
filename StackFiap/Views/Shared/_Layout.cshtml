@@ -1,0 +1,75 @@
+﻿@{ 
+    var activePerguntas = "";
+    var activeRespostas = "";
+    var activeAutores = "";
+    var activeHome = "";
+
+    switch (ViewBag.Title)
+    {
+        case "Perguntas Index":
+            activePerguntas = "active";
+            break;
+        case "Autores Index":
+            activeAutores = "active";
+            break;
+        default:
+            activeHome = "active";
+            break;
+    }
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/5BgdFUPX6M/9SUZv4d12SUPF0axWc+VRZkx5xU3daN+lYb49+Ax+Tl" crossorigin="anonymous"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+        <a class="navbar-brand" href="#">StackFiap</a>
+        <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarCollapse" aria-label="Toggle navigation" type="button" data-target="#navbarCollapse" data-toggle="collapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item @activeHome">
+                    @*<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>*@
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="nav-link">
+                        Home @if (ViewBag.Title.Equals("Index"))
+                        {<span class="sr-only">(current)</span>}
+                    </a>
+                </li>
+                <li class="nav-item @activePerguntas">
+                    <a asp-area="" asp-controller="Perguntas" asp-action="Index" class="nav-link">
+                        Perguntas @if (ViewBag.Title.Equals("Perguntas Index"))
+                        {<span class="sr-only">(current)</span>}
+                    </a>
+                </li>
+                <li class="nav-item @activeAutores">
+                    <a asp-area="" asp-controller="Autores" asp-action="Index" class="nav-link">
+                    Autores @if (ViewBag.Title.Equals("Autores Index"))
+                    {<span class="sr-only">(current)</span>}
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <form class="form-inline mt-2 mt-md-0">
+                <input class="form-control mr-sm-2" aria-label="Search" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div>
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

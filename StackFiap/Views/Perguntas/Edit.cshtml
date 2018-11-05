@@ -1,0 +1,54 @@
+﻿@model StackFiap.Models.Pergunta
+
+@{
+    ViewData["Title"] = "Pergunta Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Pergunta</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MelhorRespostaId" class="control-label"></label>
+                <select asp-for="MelhorRespostaId" class="form-control" asp-items="ViewBag.MelhorRespostaId"></select>
+                <span asp-validation-for="MelhorRespostaId" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Texto" class="control-label"></label>
+                <textarea asp-for="Texto" class="form-control"></textarea>
+                <span asp-validation-for="Texto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AutorId" class="control-label"></label>
+                <select asp-for="AutorId" class="form-control" asp-items="ViewBag.AutorId"></select>
+                <span asp-validation-for="AutorId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataCriacao" class="control-label"></label>
+                <input asp-for="DataCriacao" class="form-control" disabled/>
+                <span asp-validation-for="DataCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Aberto" disabled/> @Html.DisplayNameFor(model => model.Aberto)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
