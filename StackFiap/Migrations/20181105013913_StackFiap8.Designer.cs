@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StackFiap.Data;
 
 namespace StackFiap.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20181105013913_StackFiap8")]
+    partial class StackFiap8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,7 +56,7 @@ namespace StackFiap.Migrations
                         .ValueGeneratedOnAdd()
                         .HasDefaultValueSql("getdate()");
 
-                    b.Property<int?>("MelhorRespostaId");
+                    b.Property<int>("MelhorRespostaId");
 
                     b.Property<string>("Texto")
                         .IsRequired();
@@ -65,8 +67,7 @@ namespace StackFiap.Migrations
                         .IsUnique();
 
                     b.HasIndex("MelhorRespostaId")
-                        .IsUnique()
-                        .HasFilter("[MelhorRespostaId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Perguntas");
                 });

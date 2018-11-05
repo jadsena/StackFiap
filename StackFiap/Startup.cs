@@ -18,7 +18,7 @@ namespace StackFiap
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var connection = @"Server=(localdb)\mssqllocaldb;Database=StackDB;Trusted_Connection=True;ConnectRetryCount=0";
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=StackDBFiap;Trusted_Connection=True;ConnectRetryCount=0";
 
             services.AddDbContext<Context>(options => options.UseSqlServer(connection));
         }

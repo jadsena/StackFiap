@@ -49,8 +49,8 @@ namespace StackFiap.Controllers
         // GET: Perguntas/Create
         public IActionResult Create()
         {
-            ViewData["AutorId"] = new SelectList(_context.Autores, "Id", "Id");
-            ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, "Id", "Id");
+            ViewData["AutorId"] = new SelectList(_context.Autores, nameof(Autor.Id), nameof(Autor.Nome));
+            //ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, "Id", "Id");
             return View();
         }
 
@@ -67,8 +67,9 @@ namespace StackFiap.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AutorId"] = new SelectList(_context.Autores, "Id", "Id", pergunta.AutorId);
-            ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, "Id", "Id", pergunta.MelhorRespostaId);
+            ViewData["AutorId"] = new SelectList(_context.Autores, nameof(Autor.Id), nameof(Autor.Nome), pergunta.AutorId);
+            //ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, "Id", "Id", pergunta.MelhorRespostaId);
+            pergunta.MelhorResposta = null;
             return View(pergunta);
         }
 
@@ -85,8 +86,8 @@ namespace StackFiap.Controllers
             {
                 return NotFound();
             }
-            ViewData["AutorId"] = new SelectList(_context.Autores, "Id", "Id", pergunta.AutorId);
-            ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, "Id", "Id", pergunta.MelhorRespostaId);
+            ViewData["AutorId"] = new SelectList(_context.Autores, nameof(Autor.Id), nameof(Autor.Nome), pergunta.AutorId);
+            ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, nameof(Resposta.Id), nameof(Resposta.Texto), pergunta.MelhorRespostaId);
             return View(pergunta);
         }
 
@@ -122,8 +123,8 @@ namespace StackFiap.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AutorId"] = new SelectList(_context.Autores, "Id", "Id", pergunta.AutorId);
-            ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, "Id", "Id", pergunta.MelhorRespostaId);
+            ViewData["AutorId"] = new SelectList(_context.Autores, nameof(Autor.Id), nameof(Autor.Nome), pergunta.AutorId);
+            ViewData["MelhorRespostaId"] = new SelectList(_context.Respostas, nameof(Resposta.Id), nameof(Resposta.Texto), pergunta.MelhorRespostaId);
             return View(pergunta);
         }
 

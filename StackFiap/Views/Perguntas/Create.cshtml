@@ -13,10 +13,10 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            @*<div class="form-group">
                 <label asp-for="MelhorRespostaId" class="control-label"></label>
                 <select asp-for="MelhorRespostaId" class ="form-control" asp-items="ViewBag.MelhorRespostaId"></select>
-            </div>
+            </div>*@
             <div class="form-group">
                 <label asp-for="Texto" class="control-label"></label>
                 <textarea asp-for="Texto" class="form-control" placeholder="Digite o texto da pergunta..." ></textarea>
@@ -31,13 +31,13 @@
                 <input asp-for="DataCriacao" class="form-control" />
                 <span asp-validation-for="DataCriacao" class="text-danger"></span>
             </div>*@
-            <div class="form-group">
+            @*<div class="form-group">
                 <div class="checkbox">
                     <label>
                         <input asp-for="Aberto" /> @Html.DisplayNameFor(model => model.Aberto)
                     </label>
                 </div>
-            </div>
+            </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>

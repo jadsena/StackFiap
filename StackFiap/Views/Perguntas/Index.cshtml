@@ -13,9 +13,9 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.MelhorResposta)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Texto)
             </th>
@@ -34,14 +34,14 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.MelhorResposta.Id)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Texto)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Autor.Id)
+                @Html.DisplayFor(modelItem => item.Autor.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DataCriacao)

@@ -16,9 +16,6 @@ namespace StackFiap.Data
 
         }
 
-
-        //public DbSet<Topico> Topicos { get; set; }
-
         public DbSet<Pergunta> Perguntas { get; set; }
         public DbSet<Autor> Autores { get; set; }
         public DbSet<Resposta> Respostas { get; set; }
@@ -34,7 +31,8 @@ namespace StackFiap.Data
                 .HasOne<Resposta>(s => s.MelhorResposta)
                 .WithOne(g => g.Pergunta)
                 .HasForeignKey<Pergunta>(s => s.MelhorRespostaId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.SetNull);
             modelBuilder.Entity<Pergunta>()
                 .HasOne<Autor>(a => a.Autor)
                 .WithOne()

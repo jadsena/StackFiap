@@ -18,7 +18,7 @@ namespace StackFiap.Migrations
                     AutorId = table.Column<int>(nullable: false),
                     DataCriacao = table.Column<DateTime>(nullable: false),
                     Aberto = table.Column<bool>(nullable: false),
-                    MelhorRespostaId = table.Column<int>(nullable: false)
+                    MelhorRespostaId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
