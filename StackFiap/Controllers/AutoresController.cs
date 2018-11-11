@@ -17,6 +17,7 @@ namespace StackFiap.Controllers
         public AutoresController(Context context)
         {
             _context = context;
+            //teste
         }
 
         // GET: Autores
