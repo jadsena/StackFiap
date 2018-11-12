@@ -1,4 +1,4 @@
-﻿@model StackFiap.Models.Autor
+﻿@model StackFiap.Core.Models.Autor
 
 @{
     ViewData["Title"] = "Edit";
@@ -21,7 +21,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="DataCriacao" class="control-label"></label>
-                <input asp-for="DataCriacao" class="form-control" />
+                <input asp-for="DataCriacao" class="form-control" disabled name="InputDataCriacao"/>
+                <input asp-for="DataCriacao" class="form-control" type="hidden" />
                 <span asp-validation-for="DataCriacao" class="text-danger"></span>
             </div>
             <div class="form-group">

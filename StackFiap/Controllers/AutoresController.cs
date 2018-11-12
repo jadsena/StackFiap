@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using StackFiap.Data;
-using StackFiap.Models;
+using StackFiap.Core.Data;
+using StackFiap.Core.Models;
 
 namespace StackFiap.Controllers
 {

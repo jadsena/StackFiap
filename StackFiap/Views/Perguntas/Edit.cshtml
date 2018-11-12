@@ -1,4 +1,4 @@
-﻿@model StackFiap.Models.Pergunta
+﻿@model StackFiap.Core.Models.Pergunta
 
 @{
     ViewData["Title"] = "Pergunta Edit";
@@ -26,18 +26,20 @@
             </div>
             <div class="form-group">
                 <label asp-for="AutorId" class="control-label"></label>
-                <select asp-for="AutorId" class="form-control" asp-items="ViewBag.AutorId" disabled></select>
+                <select asp-for="AutorId" class="form-control" name="SelectAutorId" asp-items="ViewBag.AutorId" disabled></select>
+                <input type="hidden" asp-for="AutorId" />
                 <span asp-validation-for="AutorId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DataCriacao" class="control-label"></label>
-                <input asp-for="DataCriacao" class="form-control" disabled/>
+                <input asp-for="DataCriacao" class="form-control" disabled name="InputDataCriacao" />
+                <input asp-for="DataCriacao" class="form-control" type="hidden" />
                 <span asp-validation-for="DataCriacao" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Aberto" disabled/> @Html.DisplayNameFor(model => model.Aberto)
+                        <input asp-for="Aberto"/> @Html.DisplayNameFor(model => model.Aberto)
                     </label>
                 </div>
             </div>
