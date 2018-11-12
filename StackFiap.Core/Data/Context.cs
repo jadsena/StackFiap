@@ -55,15 +55,15 @@ namespace StackFiap.Core.Data
         }
     }
 
-    //public class SFContextFactory : IDesignTimeDbContextFactory<SFContext>
-    //{
-    //    public SFContext CreateDbContext(string[] args)
-    //    {
-    //        var connection = @"Server=(localdb)\mssqllocaldb;Database=StackDB;Trusted_Connection=True;ConnectRetryCount=0";
-    //        var optionsBuilder = new DbContextOptionsBuilder<SFContext>();
-    //        optionsBuilder.UseSqlServer(connection);
+    public class ContextFactory : IDesignTimeDbContextFactory<Context>
+    {
+        public Context CreateDbContext(string[] args)
+        {
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=StackDBFiap;Trusted_Connection=True;ConnectRetryCount=0";
+            var optionsBuilder = new DbContextOptionsBuilder<Context>();
+            optionsBuilder.UseSqlServer(connection);
 
-    //        return new SFContext(optionsBuilder.Options);
-    //    }
-    //}
+            return new Context(optionsBuilder.Options);
+        }
+    }
 }
